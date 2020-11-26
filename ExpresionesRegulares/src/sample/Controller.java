@@ -26,7 +26,16 @@ public class Controller {
                 "9: Validar escritura de un número hexadecimal",
                 "10: Validar operaciones de un digito",
                 "11: Validar número de control del ITSNCG",
-                "12: Validar el número CURP"
+                "12: Validar el número CURP",
+                "13: Validar que haya insertado X cantidad de pesos",
+                "14: Validar el número de una tarjeta de crédito",
+                "15: Validar una etiqueta HTML",
+                "16: Validar un color Hexadecimal",
+                "17: Validar un link",
+                "18: Validar el Query Insert into de SQL",
+                "19: Validar Sentencia if de xvariable con x condicion",
+                "20: Validar que se haya escrito una frase con salto de linea",
+                "21: Validar que se haya escrito una url con un video de youtube"
         );
     }
     public void procesar(ActionEvent event){
@@ -81,6 +90,41 @@ public class Controller {
             case 11:{
                 expresion="([A-Z]{4})([0-9]{6})[H|M]([A-Z]{2})([A-Z]{3})([A-Z0-9]{2})";
                 break;
+            }
+            case 12:{
+                expresion="^[$]([0-9]+)[.]([0-9]{2})(mxn)$";
+                break;
+            }
+            case 13:{
+                expresion="^[1-6]([0-9]{3})[' ']([0-9]{4})[' ']([0-9]{4})[' ']([0-9]{4})";
+                break;
+            }
+            case 14:{
+                expresion="[<]([a-z]+)[>](</)([a-z]+)[>]";
+                break;
+            }
+            case 15:{
+                expresion="#([A-Fa-f0-9]){6}";
+                break;
+            }
+            case 16:{
+                expresion="^(http://).+(.com)$";
+                break;
+            }
+            case 17:{
+                expresion="(INSERT INTO|insert into)[' ']([A-Za-z0-9]+)[' '](VALUES|values)(\\(('([A-Za-z0-9]+)'[,|''])+\\))[;]";
+                break;
+            }
+            case 18:{
+                expresion="(if)(\\(([A-Za-z0-9]+)([=|<|>]{1,2})([A-Za-z0-9]+)\\))(\\{.+\\})";
+                break;
+            }
+            case 19:{
+                expresion="([A-Za-z]+)[\\s]+([A-Za-z]+)";
+                break;
+            }
+            case 20:{
+                expresion="(https://www.youtube.com/watch\\?v=).+";
             }
         }
         Pattern patron=Pattern.compile(expresion);
