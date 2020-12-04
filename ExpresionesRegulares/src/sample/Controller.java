@@ -35,7 +35,14 @@ public class Controller {
                 "18: Validar el Query Insert into de SQL",
                 "19: Validar Sentencia if de xvariable con x condicion",
                 "20: Validar que se haya escrito una frase con salto de linea",
-                "21: Validar que se haya escrito una url con un video de youtube"
+                "21: Validar que se haya escrito una url con un video de youtube",
+                "22: Una secuencia que satisface es: hola_",
+                "23: Una secuencia que satisface es: cris-06",
+                "24: Una secuencia que satisface es: crismm@gmail.com",
+                "25: Una secuencia que satisface es: Cris06!!",
+                "26: Una secuencia que satisface es: rgb(23, 165, 137)",
+                "27: Una secuencia que satisface es: 1:30 ó 11:30 ó 22:30",
+                "28: Una secuencia que satisface es: -12, 5 ó 90, -180"
         );
     }
     public void procesar(ActionEvent event){
@@ -125,6 +132,37 @@ public class Controller {
             }
             case 20:{
                 expresion="(https://www.youtube.com/watch\\?v=).+";
+            }
+            case 21:{
+                expresion="^[a-z0-9_-]{3,16}$";
+                break;
+            }
+            case 22:{
+                expresion="^[a-z0-9-]+$";
+                break;
+            }
+            case 23:{
+                expresion="^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$";
+                break;
+            }
+            case 24:{
+                expresion="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}";
+                break;
+            }
+            case 25:{
+                //Tomando expesión original la respuesta es: rgb(d,sd,sd,s)
+                //Como supuse que no era lo que queria expresar la corregí
+                //expresion original= "[Rr][Gg][Bb][(](((([\\\\d]{1,3})[1,]{0,1})[\\\\s]*){3})[)]";
+                expresion="[Rr][Gg][Bb][(](((([\\d]{1,3})[1,]{0,1})[\\s]*){3})[)]";
+                break;
+            }
+            case 26:{
+                expresion="^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$";
+                break;
+            }
+            case 27:{
+                expresion="^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?),\\s*[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)$";
+                break;
             }
         }
         Pattern patron=Pattern.compile(expresion);
