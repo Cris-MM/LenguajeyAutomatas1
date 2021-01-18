@@ -13,6 +13,12 @@ public class Token {
         this.nombre = nombre;
     }
 
+    public Token(String tipo, String valorX, String valorY) {
+        this.tipo = tipo;
+        this.valorX = valorX;
+        this.valorY = valorY;
+    }
+
     public String getTipo() {
         return tipo;
     }

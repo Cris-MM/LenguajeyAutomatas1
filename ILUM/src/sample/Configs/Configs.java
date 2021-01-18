@@ -30,7 +30,7 @@ public class Configs {
 
     public static final String sampleCode = String.join("\n", new String[] {
             "iniciar linea (5,5)",
-            "iniciar rectangulo (12,14) : rojo",
+            /*"iniciar rectangulo (12,14) : rojo",
             "iniciar cuadro (3,2) : azul + destello",
             "triangulo (2,2)",
             "cuadro (7,13) = tiempo(1000)",
@@ -38,7 +38,7 @@ public class Configs {
             "prendido + blanco : cuadro (76,34)",
             "destello : triangulo (10,8)",
             "2 escala {linea (8,8)}",
-            "apagar coordenada (5,5)"
+            "apagar coordenada (5,5)"*/
     });
     public static String[] expresiones={
             "(iniciar)\\s+([a-z]{5,10})\\s*[(]([0-9]{1,2})[,]([0-9]{1,2})[)]",

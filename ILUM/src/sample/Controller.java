@@ -24,6 +24,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static sample.Configs.Configs.*;
+import static sample.Interprete.TiposToken.arrayToken;
 
 public class Controller {
     @FXML VBox centro;
@@ -57,6 +58,9 @@ public class Controller {
     }
     public void compilar(ActionEvent event){
         String error="";
+        long t1=System.currentTimeMillis();
+        consola.setText("");
+        arrayToken.clear();
         String[] reglones = codeArea.getText().split("\\n");
         for (int x=0;x<reglones.length;x++){
             boolean encontro=false;
@@ -73,7 +77,7 @@ public class Controller {
         consola.setText(error);
         //comenzar a compilar
         if (error.equals("")){
-            Compilador compilador=new Compilador();
+            Compilador compilador=new Compilador(consola);
             for (int x=0;x<reglones.length;x++){
                 boolean res=compilador.compilar(reglones[x]);
                 if (res){
@@ -81,6 +85,8 @@ public class Controller {
                 }
             }
         }
+        long t2=System.currentTimeMillis();
+        consola.appendText("\n Compilado en "+(t2 - t1)+" milisegundos");
     }
 
     private Task<StyleSpans<Collection<String>>> computeHighlightingAsync() {
