@@ -12,6 +12,7 @@ import org.fxmisc.richtext.LineNumberFactory;
 import org.fxmisc.richtext.model.StyleSpans;
 import org.fxmisc.richtext.model.StyleSpansBuilder;
 import org.reactfx.Subscription;
+import sample.Interprete.Compilador;
 
 import java.time.Duration;
 import java.util.Collection;
@@ -70,6 +71,16 @@ public class Controller {
             if (!encontro){ error+= "Error de sintaxis en la linea "+(x+1)+"\n";}
         }
         consola.setText(error);
+        //comenzar a compilar
+        if (error.equals("")){
+            Compilador compilador=new Compilador();
+            for (int x=0;x<reglones.length;x++){
+                boolean res=compilador.compilar(reglones[x]);
+                if (res){
+                    consola.appendText("\n Error de sintaxys en la linea"+(x+1));
+                }
+            }
+        }
     }
 
     private Task<StyleSpans<Collection<String>>> computeHighlightingAsync() {
