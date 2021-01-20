@@ -7,6 +7,8 @@ public class TiposToken {
     public static String CUADRO="CUADRO";
     public static String RECTANGULO="RECTANGULO";
     public static String TRIANGULO="TRIANGULO";
+    public static String TRAPECIO="TRAPECIO";
+    public static String ROMBO="ROMBO";
     public static String ROJO="ROJO";
     public static String VERDE="VERDE";
     public static String BLANCO="BLANCO";

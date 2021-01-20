@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class Configs {
     public static final String[] KEYWORDS = new String[] {
-            "linea", "cuadro", "rectangulo", "triangulo", "rojo",
+            "linea", "cuadro", "rectangulo", "triangulo", "trapecio", "rombo", "rojo",
             "verde", "azul", "blanco", "negro", "amarillo",
             "prendido", "destello", "iniciar", "tiempo", "escala",
             "apagar", "coordenada"
@@ -29,8 +29,13 @@ public class Configs {
     );
 
     public static final String sampleCode = String.join("\n", new String[] {
-            "iniciar linea (5,5)",
-            /*"iniciar rectangulo (12,14) : rojo",
+            "iniciar linea (0,150)",
+            "iniciar cuadro (100,-100)",
+            "iniciar rectangulo (-100,100)",
+            "iniciar triangulo (100,100)",
+            "iniciar trapecio (-100,-100)",
+            "iniciar rombo (0,0)",
+            /*"iniciar linea (12,14) : rojo",
             "iniciar cuadro (3,2) : azul + destello",
             "triangulo (2,2)",
             "cuadro (7,13) = tiempo(1000)",
@@ -41,7 +46,7 @@ public class Configs {
             "apagar coordenada (5,5)"*/
     });
     public static String[] expresiones={
-            "(iniciar)\\s+([a-z]{5,10})\\s*[(]([0-9]{1,2})[,]([0-9]{1,2})[)]",
+            "(iniciar)\\s+([a-z]{5,10})\\s*[(]([-]?[0-9]{1,3})[,]([-]?[0-9]{1,3})[)]",
             "(iniciar)\\s+([a-z]{5,10})\\s*[(]([0-9]{1,2})[,]([0-9]{1,2})[)]\\s*[:]\\s*([a-z]{4,8})",
             "(iniciar)\\s+([a-z]{5,10})\\s*[(]([0-9]{1,2})[,]([0-9]{1,2})[)]\\s*[:]\\s*([a-z]{4,8})\\s*[+]\\s*(destello|prendido)",
             "([a-z]{5,10})\\s*[(]([0-9]{1,2})[,]([1-9]{1,2})[)]",

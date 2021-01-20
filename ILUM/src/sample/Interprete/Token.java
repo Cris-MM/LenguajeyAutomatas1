@@ -2,18 +2,18 @@ package sample.Interprete;
 
 public class Token {
     private String tipo;
-    private String valorX;
-    private String valorY;
+    private double valorX;
+    private double valorY;
     private String nombre;
 
-    public Token(String tipo, String valorX, String valorY, String nombre) {
+    public Token(String tipo, double valorX, double valorY, String nombre) {
         this.tipo = tipo;
         this.valorX = valorX;
         this.valorY = valorY;
         this.nombre = nombre;
     }
 
-    public Token(String tipo, String valorX, String valorY) {
+    public Token(String tipo, double valorX, double valorY) {
         this.tipo = tipo;
         this.valorX = valorX;
         this.valorY = valorY;
@@ -27,19 +27,19 @@ public class Token {
         this.tipo = tipo;
     }
 
-    public String getValorX() {
+    public double getValorX() {
         return valorX;
     }
 
-    public void setValorX(String valorX) {
+    public void setValorX(double valorX) {
         this.valorX = valorX;
     }
 
-    public String getValorY() {
+    public double getValorY() {
         return valorY;
     }
 
-    public void setValorY(String valorY) {
+    public void setValorY(double valorY) {
         this.valorY = valorY;
     }
 

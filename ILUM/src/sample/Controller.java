@@ -3,9 +3,12 @@ package sample;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.LineNumberFactory;
@@ -29,6 +32,7 @@ import static sample.Interprete.TiposToken.arrayToken;
 public class Controller {
     @FXML VBox centro;
     @FXML TextArea consola;
+    @FXML Canvas canvas;
     private CodeArea codeArea;
     private ExecutorService executor;
     @FXML protected void initialize(){
@@ -61,6 +65,7 @@ public class Controller {
         long t1=System.currentTimeMillis();
         consola.setText("");
         arrayToken.clear();
+        canvas.getGraphicsContext2D().clearRect(0,0,canvas.getWidth(),canvas.getHeight());
         String[] reglones = codeArea.getText().split("\\n");
         for (int x=0;x<reglones.length;x++){
             boolean encontro=false;
@@ -77,7 +82,7 @@ public class Controller {
         consola.setText(error);
         //comenzar a compilar
         if (error.equals("")){
-            Compilador compilador=new Compilador(consola);
+            Compilador compilador=new Compilador(consola, canvas);
             for (int x=0;x<reglones.length;x++){
                 boolean res=compilador.compilar(reglones[x]);
                 if (res){
